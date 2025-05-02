@@ -14,8 +14,7 @@
             :key="link.path"
             :to="link.path"
             class="flex items-center px-4 py-2 text-gray-700 rounded-lg hover:bg-gray-100 transition-colors"
-            :class="{ 'bg-indigo-100 text-indigo-700': isActive(link.path) }"
-          >
+            :class="{ 'bg-indigo-100 text-indigo-700': isActive(link.path) }">
             <i :class="[link.icon, 'mr-3']"></i>
             {{ link.name }}
           </router-link>
@@ -24,8 +23,7 @@
         <div class="p-4 border-t">
           <button
             @click="logout"
-            class="w-full flex items-center justify-center px-4 py-2 text-gray-700 rounded-lg hover:bg-gray-100 transition-colors"
-          >
+            class="w-full flex items-center justify-center px-4 py-2 text-gray-700 rounded-lg hover:bg-gray-100 transition-colors">
             <i class="fas fa-sign-out-alt mr-3"> </i>로그아웃
           </button>
         </div>
@@ -34,7 +32,7 @@
     <!-- 메인컨텐츠 -->
     <div class="ml-64 min-h-screen">
       <div class="p-8">
-        <p v-if="isLoggedIn">🛠{{ userName }} 기사님!</p>
+        <p v-if="isLoggedIn">🛠 {{ userName }} 기사님!</p>
         <div>
           <main><router-view></router-view></main>
         </div>
@@ -43,29 +41,29 @@
   </div>
 </template>
 <script setup>
-import { storeToRefs } from 'pinia';
-import { useAuthStore } from '../../stores/auth';
-import { useRoute, useRouter } from 'vue-router';
+import { storeToRefs } from "pinia";
+import { useAuthStore } from "../../stores/auth";
+import { useRoute, useRouter } from "vue-router";
 const authStore = useAuthStore();
 const { isLoggedIn, userName } = storeToRefs(authStore);
 const route = useRoute();
 const router = useRouter();
 const links = [
-  { name: '대시보드', path: '/worker/ddashboard', icon: 'fas fa-home' },
+  { name: "대시보드", path: "/worker/ddashboard", icon: "fas fa-home" },
   {
-    name: '배정된 예약',
-    path: '/worker/assigned-jobs',
-    icon: 'fas fa-calendar-check',
+    name: "배정된 예약",
+    path: "/worker/assigned-jobs",
+    icon: "fas fa-calendar-check",
   },
-  { name: '기사페이지', path: '/worker/assing', icon: 'fas fa-user-tie' },
-  { name: '작업 내역', path: '/worker/job-history', icon: 'fas fa-history' },
-  { name: '프로필', path: '/worker/profile', icon: 'fas fa-user-circle' },
+  { name: "기사페이지", path: "/worker/assing", icon: "fas fa-user-tie" },
+  { name: "작업 내역", path: "/worker/job-history", icon: "fas fa-history" },
+  { name: "프로필", path: "/worker/profile", icon: "fas fa-user-circle" },
 ];
 // 현재 경로에 따른 활성화 상태 계산
 const isActive = (path) => route.path === path;
 // 로그아웃 기능
 const logout = () => {
   authStore.logout();
-  router.push('/');
+  router.push("/");
 };
 </script>

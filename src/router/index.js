@@ -17,7 +17,15 @@ import WorkerHome from "@/pages/worker/WorkerHome.vue";
 import AssingnedJobs from "@/pages/worker/AssingnedJobs.vue";
 import Assing from "@/pages/worker/Assing.vue";
 import Profile from "@/pages/worker/Profile.vue";
-import JobsHistory from "@/pages/worker/JobsHistory.vue";
+import Jobhistory from "@/pages/worker/Jobhistory.vue";
+// 관리자페이지
+import LoginAdmin from "@/views/LoginAdmin.vue";
+import AdminHome from "@/pages/admin/AdminHome.vue";
+import Dashboard from "@/pages/admin/Dashboard.vue";
+import Customers from "@/pages/admin/Customers.vue";
+import Reservations from "@/pages/admin/Reservations.vue";
+import Settings from "@/pages/admin/Settings.vue";
+import Workers from "@/pages/admin/Workers.vue";
 const routes = [
   { path: "/", name: "Home", component: Home },
   { path: "/contact", name: "Contact", component: Contact },
@@ -66,25 +74,57 @@ const routes = [
         component: WorkerHome,
       },
       {
-        path: "AssingnedJobs",
+        path: "assigned-jobs",
         component: AssingnedJobs,
       },
       {
-        path: "Assing",
+        path: "assing",
         component: Assing,
       },
       {
-        path: "Profile",
-        component: Profile,
+        path: "job-history",
+        component: Jobhistory,
       },
       {
-        path: "JobsHistory",
-        component: JobsHistory,
+        path: "profile",
+        component: Profile,
       },
-     
-
     ],
   },
+  // 관리자페이지
+  {
+    path: "/admin",
+    name: "LoginAdmin",
+    component: LoginAdmin,
+  },
+  // 관리자 로그인후
+  {
+    path:"/admin",
+    component: AdminHome,
+    redirect:"/admin/dashboard",
+    children:[
+      {
+        path: "dashboard",
+        component: Dashboard,
+      },
+      {
+        path: "customers",
+        component: Customers,
+      },
+      {
+        path: "reservations",
+        component: Reservations,
+      },
+      {
+        path: "settings",
+        component: Settings,
+      },
+      {
+        path: "workers",
+        component: Workers,
+      },
+    ]
+  }
 ];
 
 const router = createRouter({

@@ -1,16 +1,16 @@
 <script setup>
-import { useRoute } from 'vue-router';
-import NavigationBar from './components/NavigationBar.vue';
-import { useAuthStore } from './stores/auth';
-import { storeToRefs } from 'pinia';
-import { computed } from 'vue';
+import { useRoute } from "vue-router";
+import NavigationBar from "./components/NavigationBar.vue";
+import { useAuthStore } from "./stores/auth";
+import { storeToRefs } from "pinia";
+import { computed } from "vue";
 const route = useRoute();
 const authStore = useAuthStore();
 const { isLoggedIn, userName } = storeToRefs(authStore);
 // 기사 관리자 페이지 레이아웃
 const isSpecialPage = computed(() => {
   //startsWith() 문자열.startsWith(검색할문자열, 시작위치);
-  return route.path.startsWith('/admin') || route.path.startsWith('/worker');
+  return route.path.startsWith("/admin") || route.path.startsWith("/worker");
 });
 </script>
 
@@ -37,7 +37,7 @@ const isSpecialPage = computed(() => {
 }
 
 .content {
-  max-width: 1200px;
+  max-width: 1480px;
   margin: 0 auto;
   padding: 6rem 2rem 2rem;
 }
