@@ -23,9 +23,9 @@ import LoginAdmin from "@/views/LoginAdmin.vue";
 import AdminHome from "@/pages/admin/AdminHome.vue";
 import Dashboard from "@/pages/admin/Dashboard.vue";
 import Customers from "@/pages/admin/Customers.vue";
-import Reservations from "@/pages/admin/Reservations.vue";
 import Settings from "@/pages/admin/Settings.vue";
 import Workers from "@/pages/admin/Workers.vue";
+import Reservations from "@/pages/admin/Reservations.vue";
 const routes = [
   { path: "/", name: "Home", component: Home },
   { path: "/contact", name: "Contact", component: Contact },
@@ -99,10 +99,10 @@ const routes = [
   },
   // 관리자 로그인후
   {
-    path:"/admin",
+    path: "/admin",
     component: AdminHome,
-    redirect:"/admin/dashboard",
-    children:[
+    redirect: "/admin/dashboard",
+    children: [
       {
         path: "dashboard",
         component: Dashboard,
@@ -112,10 +112,6 @@ const routes = [
         component: Customers,
       },
       {
-        path: "reservations",
-        component: Reservations,
-      },
-      {
         path: "settings",
         component: Settings,
       },
@@ -123,8 +119,12 @@ const routes = [
         path: "workers",
         component: Workers,
       },
-    ]
-  }
+      {
+        path: "reservations",
+        component: Reservations,
+      },
+    ],
+  },
 ];
 
 const router = createRouter({

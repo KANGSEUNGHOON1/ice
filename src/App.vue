@@ -17,12 +17,12 @@ const isSpecialPage = computed(() => {
 <template>
   <div class="app">
     <NavigationBar v-if="!isSpecialPage" />
-    <div class="content" :class="{ 'special-content': isSpecialPage }">
+    <div class="content " :class="{ 'special-content': isSpecialPage }">
       <!-- <header>
         <h1 v-if="!isLoggedIn">제빙기 청소 예약 시스템</h1>
         <h1 v-else>{{ userName }} 제빙기 청소 예약 시스템</h1>
       </header> -->
-      <main>
+      <main >
         <router-view></router-view>
       </main>
     </div>
@@ -37,11 +37,12 @@ const isSpecialPage = computed(() => {
 }
 
 .content {
-  max-width: 1480px;
+
   margin: 0 auto;
-  padding: 6rem 2rem 2rem;
+  padding: 6rem ;
 }
 .special-content {
+  
   padding: 0;
   margin: 0;
 }
@@ -67,4 +68,5 @@ main {
   border-radius: 0;
   box-shadow: none;
 }
+
 </style>

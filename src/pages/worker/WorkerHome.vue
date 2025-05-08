@@ -67,3 +67,23 @@ const logout = () => {
   router.push("/");
 };
 </script>
+<style scoped>
+/* 반응형 스타일 */
+@media (max-width: 768px) {
+  .fixed {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+  .ml-64 {
+    margin-left: 0;
+  }
+  .w-64 {
+    width: 100%;
+  }
+  .p-8 {
+    padding: 1rem;
+  }
+}
+
+</style>

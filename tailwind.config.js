@@ -4,8 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
-       
-        "primary": "#3B71CA",
+        primary: "#3B71CA",
       },
       spacing: {
         "login-container": "400px",
@@ -18,5 +17,6 @@ export default {
       },
     },
   },
+  darkMode: "class",
   plugins: [],
 };
